@@ -11,10 +11,8 @@
   </head>
   <header>
 
-<a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.png', :size =>'150x150' %></a>
+<a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.jpg', :size =>'150x120' %></a>
 
-
-    <%= link_to "トップページ", "/" %>
     <% if user_signed_in? %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
