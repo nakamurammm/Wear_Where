@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre_id: 1
+  tops_size: MyString
+  bottom_size: MyString
+  foot_size: MyString
+  introduction: MyText
+
+two:
+  genre_id: 1
+  tops_size: MyString
+  bottom_size: MyString
+  foot_size: MyString
+  introduction: MyText

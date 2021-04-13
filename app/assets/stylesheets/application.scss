@@ -24,9 +24,20 @@
 }
 
 header {
-  background-color: #fefaec;
+  width: 100%;
+  height: 170px;
+  margin: 0 auto;
+}
+
+main {
+  min-height: 500px;
+  text-align: center;
 }
 
 footer {
-  background-color: #fefaec;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 120px;
+
 }

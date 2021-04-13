@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WearWhere</title>
+    <title>Wear Where</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,19 +9,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico' %>
   </head>
-  <header>
 
-<a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.jpg', :size =>'160x90' %></a>
-
-    <% if user_signed_in? %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "新規登録", new_user_registration_path %>
-    <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-  </header>
   <body>
-    <%= yield %>
+    <header>
+      <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.jpg', :size =>'160x90' %></a>
+
+      <% if user_signed_in? %>
+        <%= link_to "マイページ", users_my_page_path %>
+        <%= link_to "クローゼット", clothes_path %>
+        <%= link_to "投稿", new_post_image_path %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+    <footer>© milk 2021 All Rights Reserved.</footer>
   </body>
-  <footer>© milk 2021 All Rights Reserved.</footer>
 </html>

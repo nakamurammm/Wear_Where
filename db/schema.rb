@@ -10,7 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_044935) do
+ActiveRecord::Schema.define(version: 2021_04_11_104435) do
+
+  create_table "children", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "clothes_id"
+    t.string "name"
+    t.string "tall"
+    t.string "tops_size"
+    t.string "bottom_size"
+    t.string "foot_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "birthday"
+  end
+
+  create_table "clothe_images", force: :cascade do |t|
+    t.integer "clothes_id"
+    t.integer "post_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clothes", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "tops_size"
+    t.string "bottom_size"
+    t.string "foot_size"
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_image_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_images", force: :cascade do |t|
+    t.integer "clothes_image_id"
+    t.integer "user_id"
+    t.text "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -19,8 +76,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_044935) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "nickname"
-    t.string "tall"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
