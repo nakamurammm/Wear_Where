@@ -1,0 +1,2 @@
+class DressImage < ApplicationRecord
+end

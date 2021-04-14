@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_104435) do
+ActiveRecord::Schema.define(version: 2021_04_14_041723) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "clothes_id"
     t.string "name"
     t.string "tall"
     t.string "tops_size"
@@ -23,30 +22,37 @@ ActiveRecord::Schema.define(version: 2021_04_11_104435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "birthday"
+    t.integer "dress_id"
   end
 
-  create_table "clothe_images", force: :cascade do |t|
-    t.integer "clothes_id"
-    t.integer "post_image_id"
+  create_table "dress_genre_relations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dress_id"
+    t.integer "genre_id"
   end
 
-  create_table "clothes", force: :cascade do |t|
+  create_table "dress_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "dress_image_id"
+  end
+
+  create_table "dresses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "genre_id"
     t.string "tops_size"
     t.string "bottom_size"
     t.string "foot_size"
     t.text "introduction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_image_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_image_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -56,7 +62,6 @@ ActiveRecord::Schema.define(version: 2021_04_11_104435) do
   end
 
   create_table "post_images", force: :cascade do |t|
-    t.integer "clothes_image_id"
     t.integer "user_id"
     t.text "caption"
     t.datetime "created_at", null: false
@@ -64,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_104435) do
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.string "name"
+    t.integer "name", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

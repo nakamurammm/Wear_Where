@@ -5,9 +5,10 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(child_params)
     @child.save
-    redirect_to child_path(:id)
+    redirect_to child_path(@child.id)
   end
   def show
+
     @child = Child.find(params[:id])
   end
   def edit
@@ -22,6 +23,6 @@ class ChildrenController < ApplicationController
 private
 
   def child_params
-  params.require(:child).permit(:name, :birthday, :tall, :tops_size, :bottom_size, :foot_size, :user_id, :clothes_id)
+  params.require(:child).permit(:name, :birthday, :tall, :tops_size, :bottom_size, :foot_size, :user_id, :dress_id)
   end
 end

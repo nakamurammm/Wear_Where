@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  clothes_id: 1
-  post_image_id: 1
-
-two:
-  clothes_id: 1
-  post_image_id: 1

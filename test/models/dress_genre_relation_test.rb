@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ClotheImageTest < ActiveSupport::TestCase
+class DressGenreRelationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
