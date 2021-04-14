@@ -1,2 +1,9 @@
 <h1>Genres#new</h1>
 <p>Find me in app/views/genres/new.html.erb</p>
+
+ <div class="field">
+   <%= form_with model: @genre, local:true do |f| %>
+<%= f.label :genre %>
+<%= f.select :genre %>
+<% end %>
+</div>

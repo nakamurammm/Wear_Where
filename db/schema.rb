@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_041723) do
+ActiveRecord::Schema.define(version: 2021_04_14_083109) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 2021_04_14_041723) do
     t.integer "name", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tops_size"
+    t.string "bottom_size"
+    t.string "foot_size"
   end
 
   create_table "users", force: :cascade do |t|

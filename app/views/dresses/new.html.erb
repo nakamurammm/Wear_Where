@@ -1,2 +1,21 @@
 <h1>Dresses#new</h1>
 <p>Find me in app/views/dresses/new.html.erb</p>
+
+<h5>洋服投稿画面</h5>
+<%= form_with model:@dress, local:true do |f| %>
+
+<%= f.label :genre, 'ジャンル' %>
+<%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "選択してください" }, class: "form-control" %>
+
+
+<%= f.label :size, 'サイズ' %>
+<%= f.collection_select :size_id, @sizes, :id, :tops_size, { prompt: "選択してください" }, class: "form-control" %>
+
+<!--if文でもしジャンルでトップスを選んだらトップスサイズの入力欄を表示する、とかにする！？？？？？-->
+<!--ジャンルの項目をどこかでまとめたい、アウター、トップス→tops_size,とか、モデルでやる？できるのか？-->
+
+<%= f.label :introduction, '洋服説明' %>
+<%= f.text_area :introduction, placeholder: "洋服説明", class: "form-control"%>
+
+<%= f.submit '登録' %>
+<% end %>
