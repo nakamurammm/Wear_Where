@@ -1,21 +1,25 @@
-<h1>Dresses#new</h1>
-<p>Find me in app/views/dresses/new.html.erb</p>
 
 <h5>洋服投稿画面</h5>
 <%= form_with model:@dress, local:true do |f| %>
 
-<%= f.label :genre, 'ジャンル' %>
-<%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "選択してください" }, class: "form-control" %>
+  <%= f.attachment_field :image %><br>
 
+  <%= f.label :genre, 'ジャンル' %><br>
+  <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "選択してください" } %><br>
 
-<%= f.label :size, 'サイズ' %>
-<%= f.collection_select :size_id, @sizes, :id, :tops_size, { prompt: "選択してください" }, class: "form-control" %>
+  <%= f.label :season, 'シーズン' %><br>
+  <% @seasons.each do |season| %>
+   <div>
+     <%= f.check_box :season,{ multiple: true, checked: @dress.seasons.present? ? @dress.seasons.split(",").include?(seasons) : false },season.id, nil %>
+     <span><%= season.name %></span>
+   </div>
+  <% end %>
+  <br>
+  <%= f.label :size, 'サイズ' %><br>
+  <%= f.text_field :size, placeholder: "サイズを入力してください" %><br>
 
-<!--if文でもしジャンルでトップスを選んだらトップスサイズの入力欄を表示する、とかにする！？？？？？-->
-<!--ジャンルの項目をどこかでまとめたい、アウター、トップス→tops_size,とか、モデルでやる？できるのか？-->
+  <%= f.label :introduction, '洋服説明' %><br>
+  <%= f.text_area :introduction, placeholder: "洋服説明" %><br>
 
-<%= f.label :introduction, '洋服説明' %>
-<%= f.text_area :introduction, placeholder: "洋服説明", class: "form-control"%>
-
-<%= f.submit '登録' %>
+  <%= f.submit '登録' %>
 <% end %>

@@ -1,2 +1,16 @@
-<h1>Dresses#index</h1>
-<p>Find me in app/views/dresses/index.html.erb</p>
+<% @dresses.each do |dress| %>
+<%= link_to "詳細", dress_path(dress.id) %>
+<%= link_to dress_path(dress.id) do %>
+  <%= attachment_image_tag dress, :image %>
+<% end %><br>
+
+服のジャンル
+<%= dress.genre.name %><br>
+季節
+<%= dress.get_season_name %><br>
+サイズ
+<%= dress.size %><br>
+説明
+<%= dress.introduction %><br>
+
+<% end %>

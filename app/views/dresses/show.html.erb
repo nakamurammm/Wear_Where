@@ -1,2 +1,11 @@
-<h1>Dresses#show</h1>
-<p>Find me in app/views/dresses/show.html.erb</p>
+
+<%= attachment_image_tag @dress, :image %>
+  <p>ジャンル：<%= @dress.genre.name %></p>
+   <p>シーズン：<%= @dress.get_season_name %></p>
+  <p>説明：<%=@dress.introduction %></p>
+
+  <p>投稿日時：<%= @dress.created_at.strftime('%Y/%m/%d') %></p>
+  <% if current_user %>
+  <%= link_to "削除", dress_path(@dress), method: :delete %>
+  <% end %>
+  <%= link_to "編集", edit_dress_path(@dress.id) %>

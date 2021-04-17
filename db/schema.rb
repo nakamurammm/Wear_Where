@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_083109) do
+ActiveRecord::Schema.define(version: 2021_04_17_133934) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
@@ -25,19 +25,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_083109) do
     t.integer "dress_id"
   end
 
-  create_table "dress_genre_relations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "dress_id"
-    t.integer "genre_id"
-  end
-
-  create_table "dress_images", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "dress_image_id"
-  end
-
   create_table "dresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,6 +33,16 @@ ActiveRecord::Schema.define(version: 2021_04_14_083109) do
     t.string "bottom_size"
     t.string "foot_size"
     t.text "introduction"
+    t.string "size"
+    t.integer "season_id"
+    t.text "image_id"
+  end
+
+  create_table "dresses_seasons", force: :cascade do |t|
+    t.integer "dress_id"
+    t.integer "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -53,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_083109) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_image_id"
+    t.integer "dress_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -69,17 +67,9 @@ ActiveRecord::Schema.define(version: 2021_04_14_083109) do
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.integer "name", default: 0
+    t.string "name", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sizes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "tops_size"
-    t.string "bottom_size"
-    t.string "foot_size"
   end
 
   create_table "users", force: :cascade do |t|

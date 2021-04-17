@@ -1,2 +1,23 @@
-<h1>Dresses#edit</h1>
-<p>Find me in app/views/dresses/edit.html.erb</p>
+<h1>編集画面</h1>
+<%= form_with model:@dress, local:true do |f| %>
+ <%= f.attachment_field :image %><br>
+
+  <%= f.label :genre, 'ジャンル' %><br>
+  <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "選択してください" } %><br>
+
+  <%= f.label :season, 'シーズン' %><br>
+  <% @seasons.each do |season| %>
+   <div>
+     <%= f.check_box :season,{ multiple: true, checked: @dress.seasons.present? ? @dress.seasons.split(",").include?(seasons) : false },season.id, nil %>
+     <span><%= season.name %></span>
+   </div>
+  <% end %>
+  <br>
+  <%= f.label :size, 'サイズ' %><br>
+  <%= f.text_field :size, placeholder: "サイズを入力してください" %><br>
+
+  <%= f.label :introduction, '洋服説明' %><br>
+  <%= f.text_area :introduction, placeholder: "洋服説明" %><br>
+
+  <%= f.submit '保存' %>
+<% end %>
