@@ -1,1 +1,22 @@
-子供一覧
+
+子供一覧<br>
+ <div class="container">
+  <div class="row">
+
+<% @children.each do |child| %>
+ <div class="col-md-3">
+   <%= link_to child_path(child.id) do %>
+お名前
+<%= child.name %><br>
+身長
+<%= child.tall %><br>
+洋服（上）のサイズ
+<%= child.tops_size %><br>
+洋服（下）のサイズ
+<%= child.bottom_size %><br>
+足のサイズ
+<%= child.foot_size %><br>
+     <% end %>
+</div>
+<% end %>
+</div></div>

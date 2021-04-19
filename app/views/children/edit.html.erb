@@ -1,1 +1,16 @@
 子供編集画面
+<%= form_with model:@child, local: true do |f| %>
+ <h5>こどものなまえ</h5>
+<%= f.text_field :name %>
+<h5>誕生日</h5>
+<!--<%= f.date_select :birthday %>-->
+<h5>身長</h5>
+<%= f.text_field :tall %>
+<h5>洋服のサイズ（上）</h5>
+<%= f.text_field :tops_size %>
+<h5>洋服のサイズ（下）</h5>
+<%= f.text_field :bottom_size %>
+<h5>足のサイズ</h5>
+<%= f.text_field :foot_size %>
+  <%= f.submit '保存' %>
+<% end %>

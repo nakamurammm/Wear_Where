@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_133934) do
+ActiveRecord::Schema.define(version: 2021_04_19_074231) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_133934) do
     t.string "size"
     t.integer "season_id"
     t.text "image_id"
+    t.integer "child_id"
   end
 
   create_table "dresses_seasons", force: :cascade do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_133934) do
     t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
   end
 
   create_table "seasons", force: :cascade do |t|

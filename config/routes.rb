@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search' => "search#search"
  devise_for :users
  resources :seasons, only: [:new, :create, :edit, :destroy]
  patch '/seasons/:id', to: 'seasons#update'
@@ -9,10 +10,9 @@ Rails.application.routes.draw do
  resources :dresses, only: [:new, :create, :index, :show, :edit, :destroy]
  patch '/dresses/:id', to: 'dresses#update'
 
- resources :post_images, only: [:new, :create, :index, :show, :edit, :destroy] do
+ resources :post_images, only: [:new, :create, :index, :show, :destroy] do
    resource :favorites, only: [:create, :destroy]
   end
-  patch '/post_images/:id', to: 'post_images#update'
 
  resources :children, only: [:new, :create, :index, :show, :edit, :destroy]
  patch '/children/:id', to: 'children#update'

@@ -4,20 +4,31 @@ class ChildrenController < ApplicationController
   end
   def create
     @child = Child.new(child_params)
-    @child.save
-    redirect_to child_path(@child.id)
+    @child.save!
+    redirect_to children_path
   end
   def show
 
     @child = Child.find(params[:id])
   end
   def edit
+    @child = Child.find(params[:id])
   end
   def update
+    child = Child.find(params[:id])
+    child.update(child_params)
+    redirect_to child_path(child)
+
   end
   def index
+    @children = Child.all
+    @user = current_user
   end
+
   def destroy
+    child = Child.find(params[:id])
+    child.destroy
+    redirect_to children_path
   end
 
 private

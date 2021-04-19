@@ -31,16 +31,13 @@ class DressesController < ApplicationController
     @genres = Genre.all
     @seasons = Season.all
   end
+
   def update
-      @dress = Dress.find(params[:id])
-      if @dress.update(dress_params)
-      params[:dress][:season].each do |season_id|
-        DressesSeason.update(season_id: season_id,dress_id:@dress.id)
-      end
-      redirect_to dresses_path
-      else
-      @seasons = Season.all
-      end
+    @dress = Dress.find(params[:id])
+
+    @dress.update(dress_params)
+
+    redirect_to dress_path(@dress.id)
   end
   def destroy
     @dress = Dress.find(params[:id])
@@ -50,7 +47,7 @@ class DressesController < ApplicationController
 
   private
   def dress_params
-    params.require(:dress).permit(:user_id, :genre_id, :season_id, :image, :size, :introduction)
+    params.require(:dress).permit(:user_id, :genre_id, :season_id, :image, :size, :introduction, season_ids: [])
   end
 
 end
