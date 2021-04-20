@@ -19,6 +19,7 @@ class DressesController < ApplicationController
 
   def index
     @dresses = Dress.all
+    @posts = Post.where(user_id: current_user.id).where.not(image: nil)
 
   end
 

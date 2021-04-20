@@ -1,11 +1,21 @@
+   <div class="row">
+     <div class="col-lg-3"></div>
+    <br>
+    <br>
+   <div class="col-lg-3">
+      <%= attachment_image_tag @dress, :image, limit:"300x300" %>
+    </div>
 
-<%= attachment_image_tag @dress, :image %>
-  <p>ジャンル：<%= @dress.genre.name %></p>
-   <p>シーズン：<%= @dress.get_season_name %></p>
-  <p>説明：<%=@dress.introduction %></p>
+    <div class="col-lg-3">
+      <p>ジャンル：<%= @dress.genre.name %></p>
+      <p>シーズン：<%= @dress.get_season_name %></p>
+      <p>説明：<%=@dress.introduction %></p>
+      <p>登録日時：<%= @dress.created_at.strftime('%Y/%m/%d') %></p>
 
-  <p>投稿日時：<%= @dress.created_at.strftime('%Y/%m/%d') %></p>
-  <% if current_user %>
-  <%= link_to "削除", dress_path(@dress), method: :delete %>
-  <% end %>
-  <%= link_to "編集", edit_dress_path(@dress.id) %>
+      <% if current_user %>
+      <%= link_to "削除", dress_path(@dress), method: :delete, class: "btn btn-secondary" %>
+      <% end %>
+      <%= link_to "編集", edit_dress_path(@dress.id), class: "btn btn-secondary" %>
+    </div>
+     <div class="col-lg-3"></div>
+  </div>

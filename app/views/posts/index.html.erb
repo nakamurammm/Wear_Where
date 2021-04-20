@@ -1,9 +1,7 @@
-<% @post.post_images_images.each do |image| %>
-<div>
-    <%= link_to post_path(post.id) do %>
-  <%= attachment_image_tag image, :image %>
+
+ <% @posts.post_images_images.each do |image| %>
+   <p>ユーザーネーム：<%= @post.user.name %></p>
+  <%= @post.caption %>
+    <%= attachment_image_tag image, :image, class: "default_image" %>
   <% end %>
-  <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
-</div>
-<% end %>
+

@@ -1,8 +1,8 @@
-
+<br><br>
 <h5>洋服投稿画面</h5>
 <%= form_with model:@dress, local:true do |f| %>
 
-  <%= f.attachment_field :image, multiple: true  %><br>
+  <%= f.attachment_field :image %><br>
 
   <%= f.label :genre, 'ジャンル' %><br>
   <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "選択してください" } %><br>
@@ -15,11 +15,11 @@
    </div>
   <% end %>
   <br>
-  <%= f.label :size, 'サイズ' %><br>
-  <%= f.text_field :size, placeholder: "サイズを入力してください" %><br>
+  <%= f.label :size, 'サイズ(半角)' %><br>
+  <%= f.text_field :size, placeholder: "100" %> cm<br>
 
   <%= f.label :introduction, '洋服説明' %><br>
-  <%= f.text_area :introduction, placeholder: "洋服説明" %><br>
+  <%= f.text_area :introduction, placeholder: "西松屋で購入。" %><br>
 
   <%= f.submit '登録' %>
 <% end %>
