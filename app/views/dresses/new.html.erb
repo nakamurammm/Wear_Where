@@ -2,7 +2,7 @@
 <h5>洋服投稿画面</h5>
 <%= form_with model:@dress, local:true do |f| %>
 
-  <%= f.attachment_field :image %><br>
+  <%= f.attachment_field :image, multiple: true  %><br>
 
   <%= f.label :genre, 'ジャンル' %><br>
   <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "選択してください" } %><br>
