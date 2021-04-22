@@ -3,6 +3,7 @@ class DressesController < ApplicationController
     @dress = Dress.new
     @genres = Genre.all
     @seasons = Season.all
+    @children = Child.all
   end
   def create
     @dress = Dress.new(dress_params)
@@ -19,16 +20,17 @@ class DressesController < ApplicationController
 
   def index
     @dresses = Dress.all
-    @posts = Post.where(user_id: current_user.id).where.not(image: nil)
 
   end
 
   def show
     @dress = Dress.find(params[:id])
+
   end
 
   def edit
     @dress = Dress.find(params[:id])
+    @children = Child.all
     @genres = Genre.all
     @seasons = Season.all
   end
@@ -48,7 +50,7 @@ class DressesController < ApplicationController
 
   private
   def dress_params
-    params.require(:dress).permit(:user_id, :genre_id, :season_id, :image, :size, :introduction, season_ids: [])
+    params.require(:dress).permit(:user_id, :child_id, :genre_id, :season_id, :image, :size, :explanation, season_ids: [])
   end
 
 end

@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_010156) do
+ActiveRecord::Schema.define(version: 2021_04_22_105403) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "dress_id"
     t.string "name"
     t.string "tall"
     t.string "tops_size"
@@ -22,21 +23,24 @@ ActiveRecord::Schema.define(version: 2021_04_20_010156) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "birthday"
-    t.integer "dress_id"
   end
 
   create_table "dresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "genre_id"
-    t.string "tops_size"
-    t.string "bottom_size"
-    t.string "foot_size"
-    t.text "introduction"
     t.string "size"
     t.integer "season_id"
     t.text "image_id"
     t.integer "child_id"
+    t.integer "genre_id"
+    t.text "explanation"
+  end
+
+  create_table "dresses_children", force: :cascade do |t|
+    t.integer "dress_id"
+    t.integer "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "dresses_seasons", force: :cascade do |t|
@@ -51,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_010156) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_image_id"
-    t.integer "dress_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -68,13 +71,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_010156) do
     t.string "image_id"
     t.integer "post_id"
     t.index ["post_id"], name: "index_post_images_on_post_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "caption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "seasons", force: :cascade do |t|

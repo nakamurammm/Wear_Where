@@ -10,18 +10,19 @@ Rails.application.routes.draw do
  resources :dresses, only: [:new, :create, :index, :show, :edit, :destroy]
  patch '/dresses/:id', to: 'dresses#update'
 
- resources :posts, only: [:new, :create, :index, :show, :destroy] do
+ resources :post_images, only: [:new, :create, :index, :show, :destroy] do
    resource :favorites, only: [:create, :destroy]
   end
- resources :post_images, only: [:new, :create, :index, :show, :destroy]
+
 
  resources :children, only: [:new, :create, :index, :show, :edit, :destroy]
  patch '/children/:id', to: 'children#update'
 
- resources :users, only: [:new, :create, :edit, :destroy]
+ resources :users, only: [:new, :create, :edit, :show, :destroy]
  patch '/users/:id', to: 'users#update'
- get "/users/my_page" => "users#show"
+
 
 
   get "/" => "homes#top"
+  get "list" => "homes#list"
 end

@@ -1,4 +1,9 @@
 
-ユーザーマイページ！
+  <div class='row'>
+    <div class='col-lg-6'>
 
-<%= link_to "子供の情報を登録する", new_child_path %>
+      <h5>自分の投稿一覧</h5>
+      <%= render 'post_images/index',post_images: @post_images %>
+    </div>
+    <div class='col-lg-6'></div>
+  </div>

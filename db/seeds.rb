@@ -25,3 +25,19 @@ Genre.create([
                   { name: '帽子' },
                   { name: 'その他' },
                   ])
+
+Child.create!(
+   name: 'つむぎ',
+   tall:89,
+   tops_size:100,
+   bottom_size:90,
+   foot_size:15,
+
+)
+Child.create!(
+   name: 'めい',
+   tall:87,
+   tops_size:100,
+   bottom_size:90,
+   foot_size:14,
+)

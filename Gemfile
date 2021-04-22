@@ -79,6 +79,8 @@ end
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 
-gem "byebug"
-gem 'rails-i18n'
-gem 'enum_help'
+gem 'gimei'
+gem 'faker'
+
+# gem 'carrierwave'
+# gem 'rmagick'

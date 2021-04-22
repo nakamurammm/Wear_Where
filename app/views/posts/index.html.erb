@@ -1,7 +1,0 @@
-
- <% @posts.post_images_images.each do |image| %>
-   <p>ユーザーネーム：<%= @post.user.name %></p>
-  <%= @post.caption %>
-    <%= attachment_image_tag image, :image, class: "default_image" %>
-  <% end %>
-

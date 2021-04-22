@@ -12,18 +12,9 @@
 
   <body>
     <header>
-      <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.jpg', :size =>'160x90' %></a>
-
-      <% if user_signed_in? %>
-        <%= link_to "マイページ", users_my_page_path %>
-        <%= link_to "洋服登録", new_dress_path %>
-        <%= link_to "クローゼット", dresses_path %>
-        <%= link_to "投稿", new_post_image_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "新規登録", new_user_registration_path %>
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.jpg', :size =>'160x90' %></a>
+         <div class="container">
 
       <% if user_signed_in? %>
         こんにちは<%= current_user.name %>さん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です!
@@ -31,32 +22,42 @@
         こんにちは　ゲストユーザーさん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
       <% end %>
 
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "マイページ", user_path(current_user) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "洋服登録", new_dress_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "クローゼット", dresses_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "投稿フォーム", new_post_image_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "投稿一覧", post_images_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ジャンル登録・編集", new_genre_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-      <!--<div class="center-block">-->
-      <!--  <% if user_signed_in? %>-->
-      <!--    <%= form_tag(search_path, method: :get) do %>-->
-      <!--      <%= select_tag 'dress', options_for_select([['---選択してください---',''], ['dress', '1']]) %>-->
-      <!--      <%= select_tag 'search', options_for_select([['前方一致', 'forword_match'], ['後方一致', 'backword_match'],['完全一致', 'perfect_match'], ['部分一致', 'partial_match']]) %>-->
-      <!--      <%= submit_tag '検索' %>-->
-      <!--    <% end %>-->
-      <!--  <% end %>-->
-      <!--</div>-->
-      <div class="input-group col-md-3">
-      <div class="input-group-prepend">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Genre</a>
-          <a class="dropdown-item" href="#">Size</a>
-          <a class="dropdown-item" href="#">Season</a>
-          <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
-      </div>
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default"><i class="fas fa-search"></i></button>
-      </span>
-      </div>
     </header>
 
     <main>
