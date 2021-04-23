@@ -4,67 +4,19 @@
     <title>Wear Where</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo.jpg', :size =>'160x90' %></a>
-         <div class="container">
-
-      <% if user_signed_in? %>
-        こんにちは<%= current_user.name %>さん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です!
-      <% else %>
-        こんにちは　ゲストユーザーさん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
-      <% end %>
-
-        <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "マイページ", user_path(current_user) %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "洋服登録", new_dress_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "クローゼット", dresses_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "投稿フォーム", new_post_image_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "投稿一覧", post_images_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ジャンル登録・編集", new_genre_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-    </header>
+    <%= render 'layouts/header' %>
 
     <main>
       <%= yield %>
     </main>
 
-    <footer>© milk 2021 All Rights Reserved.</footer>
+    <footer><br><p>© milk 2021 All Rights Reserved.</p></footer>
 
   </body>
 </html>

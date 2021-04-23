@@ -1,0 +1,28 @@
+
+    <header>
+        <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo2.jpg', :size =>'250x40' %></a>
+        <% if user_signed_in? %>
+        こんにちは<%= current_user.name %>さん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です!
+        <% else %>
+        こんにちは　ゲストユーザーさん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
+        <% end %>
+    </header>
+
+    <nav>
+      <ul class="nav-list">
+      <% if user_signed_in? %>
+        <li class="nav-list-item"><%= link_to "マイページ", user_path(current_user), class: "Editlink1" %></li>
+        <li class="nav-list-item"><%= link_to "洋服登録", new_dress_path, class: "Editlink2" %></li>
+        <li class="nav-list-item"><%= link_to "クローゼット", dresses_path, class: "Editlink1" %></li>
+        <li class="nav-list-item"><%= link_to "投稿フォーム", new_post_image_path, class: "Editlink2" %></li>
+        <li class="nav-list-item"><%= link_to "投稿一覧", post_images_path, class: "Editlink1" %></li>
+        <li class="nav-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Editlink2" %></li>
+      <% else %>
+        <li class="nav-list-item">
+        こんにちは　ゲストユーザーさん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
+        </li>
+        <li class="nav-list-item"><%= link_to "新規登録", new_user_registration_path, class: "Editlink2" %></li>
+        <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path, class: "Editlink1" %></li>
+        <% end %>
+      </ul>
+    </nav>
