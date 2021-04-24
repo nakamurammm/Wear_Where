@@ -7,10 +7,7 @@ class ChildrenController < ApplicationController
     @child.save!
     redirect_to children_path
   end
-  def show
 
-    @child = Child.find(params[:id])
-  end
   def edit
     @child = Child.find(params[:id])
   end

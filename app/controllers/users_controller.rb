@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :show]
+
   def show
     @users = User.all
     @user = User.find(params[:id])
     @post_images = @user.post_images.all
-  end
+    @children = Child.all
 
-  def index
   end
 
   def edit
@@ -19,8 +20,19 @@ class UsersController < ApplicationController
 
   def update
   end
-end
 
-def user_params
+  private
+
+  def user_params
     params.require(:user).permit(:name)
   end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
+  end
+
+
+end

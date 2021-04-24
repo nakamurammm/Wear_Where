@@ -1,20 +1,30 @@
-<h2>子供新規登録</h2>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h5>こどもの情報登録</h5>
 
-<%= form_with model:@child, local:true do |f| %>
+      <%= form_with model:@child, local:true do |f| %>
 
-<h5>こどものなまえ</h5>
-<%= f.text_field :name %>
-<h5>誕生日</h5>
-<!--<%= f.date_select :birthday %>-->
-<h5>身長</h5>
-<%= f.text_field :tall %>
-<h5>洋服のサイズ（上）</h5>
-<%= f.text_field :tops_size %>
-<h5>洋服のサイズ（下）</h5>
-<%= f.text_field :bottom_size %>
-<h5>足のサイズ</h5>
-<%= f.text_field :foot_size %>
+        <%= f.label :name, 'こどものなまえ', class:"col-form-label" %><br>
+        <%= f.text_field :name, placeholder: "はなこ", class: "form-control" %><br>
 
-<%= f.submit '投稿' %>
+        <%= f.label :tall, '身長', class:"col-form-label" %><br>
+        <%= f.text_field :tall, placeholder: "89", class: "form-control" %>cm<br>
 
-<% end %>
+        <%= f.label :tops_size, '洋服のサイズ（上）', class:"col-form-label" %><br>
+        <%= f.text_field :tops_size, placeholder: "100", class: "form-control" %>cm<br>
+
+        <%= f.label :bottom_size, '洋服のサイズ（下）', class:"col-form-label" %><br>
+        <%= f.text_field :bottom_size, placeholder: "90", class: "form-control" %>cm<br>
+
+        <%= f.label :foot_size, '足のサイズ', class:"col-form-label" %><br>
+        <%= f.text_field :foot_size, placeholder: "15", class: "form-control" %>cm<br>
+
+        <%= f.submit '投稿', class:"btn btn-success mx-auto" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

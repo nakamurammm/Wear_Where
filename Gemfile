@@ -81,6 +81,3 @@ gem 'rubocop-rails', require:false
 
 gem 'gimei'
 gem 'faker'
-
-# gem 'carrierwave'
-# gem 'rmagick'

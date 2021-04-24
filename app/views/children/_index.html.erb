@@ -1,0 +1,25 @@
+
+子供一覧<br>
+ <div class="container">
+  <div class="row">
+
+<% children.each do |child| %>
+ <div class="col-md-3">
+お名前
+<%= child.name %><br>
+身長
+<%= child.tall %><br>
+洋服（上）のサイズ
+<%= child.tops_size %><br>
+洋服（下）のサイズ
+<%= child.bottom_size %><br>
+足のサイズ
+<%= child.foot_size %><br>
+
+<%= link_to "編集", edit_child_path(child.id) %>
+<% if current_user %>
+  <%= link_to "削除", child_path(child), method: :delete %>
+<% end %>
+</div>
+<% end %>
+</div></div>

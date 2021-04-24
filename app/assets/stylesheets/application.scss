@@ -62,14 +62,13 @@ header .heading {
   margin: 0 auto;
 }
 
-.blog {
-  width: 600px;
-  height: 1400px;
+
+#notice {
+  color: green;
 }
 
-.sidebar {
-  width: 240px;
-  height: 1400px;
+#error_explanation {
+  color: red;
 }
 
 main {
@@ -106,7 +105,73 @@ footer {
 
 .about strong {
     position: absolute;
-    top: 230px;
-    left: 340px;
+    top: 200px;
+    left: 350px;
     text-size: 15px;
+}
+
+// 洋服一覧のタブ
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin:20px 0;
+}
+.tab-wrap:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #ffb3be;
+  display: block;
+  order: -1;
+}
+.tab-label {
+  color: White;
+  background: LightGray;
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: center;
+  padding: 10px .5em;
+  order: -1;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  flex: 1;
+}
+.tab-label:not(:last-of-type) {
+  margin-right: 5px;
+}
+.tab-content {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+	white-space: nowrap;
+}
+.tab-switch:checked+.tab-label {
+  background: #ffb3be;
+}
+.tab-switch:checked+.tab-label+.tab-content {
+  height: auto;
+  overflow: auto;
+  padding: 15px;
+  opacity: 1;
+  transition: .5s opacity;
+
+}
+.tab-switch {
+  display: none;
+}
+
+.list-group {
+  background-color: #fed8de;
+  border: 2px #ff84c1 dashed;
+  color: #898989;
+}
+
+.list-item {
+  color: #ff84c1;
 }

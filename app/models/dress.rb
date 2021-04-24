@@ -8,10 +8,13 @@ class Dress < ApplicationRecord
   # has_many :children, through: :dresses_seasons
   attachment :image
   validates :size, presence: true
+  validates :child, presence: true
   validates :image, presence: true
   validates :genre, presence: true
+  validates :season, acceptance: true
 
   def get_season_name
     seasons.map{|season|season.name}.join("・")
   end
+
 end
