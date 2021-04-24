@@ -1,34 +1,35 @@
-<h2>新規登録</h2>
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="form-group col-lg-4"></div>
+    <div class="form-group col-lg-4">
+      <h5 class= "toptext">新規登録</h5>
 
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <%= f.label :name,'名前', class:"col-form-label" %>
+        <%= f.text_field :name, autofocus: true, placeholder:"ユーザーネームを入力", autocomplete: "name", class: "form-control" %>
+
+        <%= f.label :email,'email', class:"col-form-label" %>
+        <%= f.email_field :email, autofocus: true, placeholder:"example@com", autocomplete: "email", class: "form-control" %>
+
+        <%= f.label :password,'パスワード(6文字以上)', class:"col-form-label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+
+        <%= f.label :password_confirmation,'パスワード(確認用)', class:"col-form-label" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %><br>
+
+        <%= f.submit "新規登録",class:'btn btn-success col-sm-12' %>
+      <% end %>
+      <br>
+
+      <p>
+         会員登録がお済みの方は<br>
+         <%= render "devise/shared/links" %>
+         からログインを行ってください。
+      </p>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
