@@ -1,25 +1,42 @@
+<h5>子供一覧</h5>
 
-子供一覧<br>
- <div class="container">
+<div class="container">
   <div class="row">
-
-<% children.each do |child| %>
- <div class="col-md-3">
-お名前
-<%= child.name %><br>
-身長
-<%= child.tall %><br>
-洋服（上）のサイズ
-<%= child.tops_size %><br>
-洋服（下）のサイズ
-<%= child.bottom_size %><br>
-足のサイズ
-<%= child.foot_size %><br>
-
-<%= link_to "編集", edit_child_path(child.id) %>
-<% if current_user %>
-  <%= link_to "削除", child_path(child), method: :delete, data: { confirm: '削除しますか？' } %>
-<% end %>
+    <div class="col-md-3"></div>
+    <% children.each do |child| %>
+    <div class="col-md-3">
+     <table style="border-color:#ff84c1 ; border-style:dashed ; border-width:1px ; text-align:left ">
+      <tr>
+        <td>お名前</td>
+        <td><%= child.name %></td>
+      </tr>
+      <tr>
+        <td>身長</td>
+        <td><%= child.tall %>cm</td>
+      </tr>
+      <tr>
+        <td>洋服（上）</td>
+        <td><%= child.tops_size %>cm</td>
+      </tr>
+      <tr>
+        <td>洋服（下）</td>
+        <td><%= child.bottom_size %>cm</td>
+      </tr>
+      <tr>
+        <td>足のサイズ</td>
+        <td><%= child.foot_size %>cm</td>
+      </tr>
+      <tr>
+        <td>
+        <%= link_to "編集", edit_child_path(child.id) %>
+        <% if current_user %>
+          <%= link_to "削除", child_path(child), method: :delete, data: { confirm: '削除しますか？' } %>
+        <% end %>
+        </td>
+        <td></td>
+      </tr>
+     </table>
+    </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
-</div></div>
