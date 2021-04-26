@@ -6,9 +6,9 @@
         <%= attachment_image_tag dress, :image, format: 'jpeg', size: "150x150" %>
       <% end %><br>
 
-      <%= dress.genre.name %><br>
-      <%= dress.get_season_name %><br>
-      <%= dress.size %> cm<br>
+      <!--<%= dress.genre.name %><br>-->
+      <!--<%= dress.get_season_name %><br>-->
+      <!--<%= dress.size %> cm<br>-->
     <% end %>
     </div>
 
@@ -70,6 +70,7 @@
 
   <input id="tab05" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab05">ワンピース</label>
     <div class="tab-content">
+
       <% @dresses5.each do |dress| %>
 
       <%= link_to dress_path(dress.id) do %>
@@ -181,3 +182,6 @@
     </div>
 
 </div>
+
+
+<p><%= link_to "新しいおようふくを登録する！", new_dress_path, class: "list-item" %></p>

@@ -14,7 +14,7 @@ class ChildrenController < ApplicationController
   def update
     child = Child.find(params[:id])
     child.update(child_params)
-    redirect_to child_path(child)
+    redirect_to children_path
 
   end
   def index

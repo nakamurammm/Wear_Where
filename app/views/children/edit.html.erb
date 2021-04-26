@@ -1,16 +1,26 @@
-子供編集画面
+<div class="container">
+  <div class="row">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+      子供編集画面
+
 <%= form_with model:@child, local: true do |f| %>
- <h5>こどものなまえ</h5>
-<%= f.text_field :name %>
-<h5>誕生日</h5>
-<!--<%= f.date_select :birthday %>-->
-<h5>身長</h5>
-<%= f.text_field :tall %>
-<h5>洋服のサイズ（上）</h5>
-<%= f.text_field :tops_size %>
-<h5>洋服のサイズ（下）</h5>
-<%= f.text_field :bottom_size %>
-<h5>足のサイズ</h5>
-<%= f.text_field :foot_size %>
-  <%= f.submit '保存' %>
+
+<%= f.label :name, 'こどものなまえ', class:"col-form-label" %>
+<%= f.text_field :name, class: "form-control" %><br>
+
+<%= f.label :tall, '身長', class:"col-form-label" %>
+<%= f.text_field :tall, class: "form-control" %>cm<br>
+
+<%= f.label :tops_size, '洋服のサイズ（上）', class:"col-form-label" %>
+<%= f.text_field :tops_size, class: "form-control" %> cm<br>
+
+<%= f.label :bottom_size, '洋服のサイズ（下）', class:"col-form-label" %>
+<%= f.text_field :bottom_size, class: "form-control" %> cm<br>
+
+<%= f.label :foot_size, '足のサイズ', class:"col-form-label" %>
+<%= f.text_field :foot_size, class: "form-control" %> cm<br>
+
+  <%= f.submit '保存', class:"btn btn-success mx-auto" %>
 <% end %>
+</div></div></div>

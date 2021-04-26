@@ -18,7 +18,7 @@
 
 <%= link_to "編集", edit_child_path(child.id) %>
 <% if current_user %>
-  <%= link_to "削除", child_path(child), method: :delete %>
+  <%= link_to "削除", child_path(child), method: :delete, data: { confirm: '削除しますか？' } %>
 <% end %>
 </div>
 <% end %>
