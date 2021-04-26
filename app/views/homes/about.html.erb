@@ -1,0 +1,21 @@
+ <div class='row'>
+    <div class="col-lg-2">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>ユーザーメニュー！！</strong></li>
+        <li class="list-group-item"><%= link_to "おようふくの登録", new_dress_path, class: "list-item" %></li>
+        <li class="list-group-item"><%= link_to "おきにいり投稿", new_post_image_path, class: "list-item" %></li>
+        <li class="list-group-item"><%= link_to "こどもの情報登録", new_child_path, class: "list-item" %></li>
+        <li class="list-group-item"><%= link_to "こどものページ", children_path, class: "list-item" %></li>
+        <li class="list-group-item"><%= link_to "このサイトの使い方", about_path, class: "list-item" %>
+
+      </ul>
+    </div>
+    <div class="col-lg-8">
+      新しい洋服を登録するときは<%= link_to "おようふくの登録", new_dress_path, class: "Editlink1" %>！！<br><br>
+      自分の持っている洋服を確認したいときには<%= link_to "クローゼット", dresses_path, class: "Editlink2" %>！！<br><br>
+      気に入った洋服を見せたいときには<%= link_to "おきにいり投稿", new_post_image_path, class: "Editlink1" %>！！<br><br>
+      みんなの投稿が見たいときには<%= link_to "みんなの投稿", post_images_path, class: "Editlink2" %>！！<br><br>
+      自分の投稿だけを見たいときには<%= link_to "マイページ", user_path(current_user), class: "Editlink1" %>！！<br><br>
+      お子様の情報を登録したいときには<%= link_to "こどもの情報登録", new_child_path, class: "Editlink2" %>！！<br><br>
+      身長が伸びたり、洋服のサイズが変わったときは<%= link_to "こどものページ", children_path, class: "Editlink1" %>！！<br><br>
+    </div>
