@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/search' => "search#search"
+
  devise_for :users
  resources :seasons, only: [:new, :create, :edit, :destroy]
  patch '/seasons/:id', to: 'seasons#update'

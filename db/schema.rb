@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_070143) do
+ActiveRecord::Schema.define(version: 2021_04_27_072340) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
@@ -52,10 +52,9 @@ ActiveRecord::Schema.define(version: 2021_04_27_070143) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_image_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postimage_id"
+    t.integer "post_image_id"
   end
 
   create_table "genres", force: :cascade do |t|
