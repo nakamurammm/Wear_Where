@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_063033) do
+ActiveRecord::Schema.define(version: 2021_04_27_070143) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 2021_04_23_063033) do
   create_table "dresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "size"
-    t.integer "season_id"
-    t.text "image"
-    t.integer "child_id"
     t.integer "genre_id"
     t.text "explanation"
+    t.string "size"
+    t.integer "season_id"
+    t.text "image_id"
+    t.integer "child_id"
   end
 
   create_table "dresses_children", force: :cascade do |t|
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 2021_04_23_063033) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "post_image_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "post_image_id"
-    t.integer "post_image_id_id"
+    t.integer "postimage_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -97,8 +97,6 @@ ActiveRecord::Schema.define(version: 2021_04_23_063033) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
-    t.string "tall"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
