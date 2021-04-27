@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_063033) do
     t.datetime "updated_at", null: false
     t.string "size"
     t.integer "season_id"
-    t.text "image_id"
+    t.text "image"
     t.integer "child_id"
     t.integer "genre_id"
     t.text "explanation"
