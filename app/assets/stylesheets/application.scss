@@ -66,15 +66,18 @@ header .heading {
 #notice {
   color: green;
 }
+#message {
+  color: red;
+}
 
 #error_explanation {
   color: red;
 }
 
-main {
-  min-height: 500px;
-  text-align: center;
-}
+// main {
+//   min-height: 500px;
+//   text-align: center;
+// }
 
 footer {
   width: 100%;
@@ -177,3 +180,34 @@ footer {
   text-align: left;
 }
 
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: #f19ca7;
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus,
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary,
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus,
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: #e95464; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+.btn-primary.outline {
+    border: 3px solid  #f19ca7; //アウトラインのみのボタンの線の色
+    color: #fff; //アウトラインのみのボタンのテキストの色
+}

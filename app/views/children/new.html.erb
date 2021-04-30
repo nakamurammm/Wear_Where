@@ -1,28 +1,35 @@
 <br>
+
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
+      <p id="message"><% if @child.errors.any? %>
+  <%= @child.errors.count %>件のエラーが発生しました
+  <% @child.errors.full_messages.each do |message| %><br>
+    <%= message %>
+  <% end %>
+<% end %></p>
       <h5>こどもの情報登録</h5>
 
       <%= form_with model:@child, local:true do |f| %>
-
+<div>
         <%= f.label :name, 'こどものなまえ', class:"col-form-label" %><br>
         <%= f.text_field :name, placeholder: "はなこ", class: "form-control" %><br>
-
+</div><div>
         <%= f.label :tall, '身長', class:"col-form-label" %><br>
         <%= f.text_field :tall, placeholder: "89", class: "form-control" %>cm<br>
-
+</div><div>
         <%= f.label :tops_size, '洋服のサイズ（上）', class:"col-form-label" %><br>
         <%= f.text_field :tops_size, placeholder: "100", class: "form-control" %>cm<br>
-
+</div><div>
         <%= f.label :bottom_size, '洋服のサイズ（下）', class:"col-form-label" %><br>
         <%= f.text_field :bottom_size, placeholder: "90", class: "form-control" %>cm<br>
-
+</div><div>
         <%= f.label :foot_size, '足のサイズ', class:"col-form-label" %><br>
         <%= f.text_field :foot_size, placeholder: "15", class: "form-control" %>cm<br>
-
-        <%= f.submit '登録', class:"btn btn-success mx-auto" %>
+</div>
+        <%= f.submit '登録', class:"btn btn-primary mx-auto" %>
 
       <% end %>
     </div>

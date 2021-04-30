@@ -81,3 +81,5 @@ gem 'rubocop-rails', require:false
 
 gem 'gimei'
 gem 'faker'
+
+gem 'rails-i18n'

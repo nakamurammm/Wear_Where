@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      child:
+        name: こどものなまえ
+        tall: 身長
+        tops_size: 洋服のサイズ（上）
+        bottom_size: 洋服のサイズ（下）
+        foot_size: 足のサイズ
+
+      dress:
+        child: 誰の洋服か
+        genre: ジャンル
+        get_season_name: シーズン
+        image: 画像
+        size: サイズ
+        explanation: 説明文

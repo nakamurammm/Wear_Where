@@ -9,12 +9,14 @@ class Dress < ApplicationRecord
   attachment :image
   validates :size, presence: true
   validates :child, presence: true
-  validates :image, presence: true
+  validates :image, presence: { message: 'を選択してください。' }
   validates :genre, presence: true
-  validates :season, acceptance: true
 
+  validates :explanation, presence: true
   def get_season_name
     seasons.map{|season|season.name}.join("・")
   end
+
+validates :get_season_name, acceptance: { message: 'を選択してください。' }
 
 end

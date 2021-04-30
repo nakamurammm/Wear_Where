@@ -1,4 +1,6 @@
 class DressesController < ApplicationController
+  before_action :set_input_items, only: [:new, :create, :edit, :update]
+
   def new
     @dress = Dress.new
     @genres = Genre.all
@@ -20,6 +22,7 @@ class DressesController < ApplicationController
   end
 
   def index
+
     @dresses = Dress.all
     @dresses1 = Dress.where(genre_id: 1)
     @dresses2 = Dress.where(genre_id: 2)
@@ -64,6 +67,12 @@ class DressesController < ApplicationController
   private
   def dress_params
     params.require(:dress).permit(:user_id, :child_id, :genre_id, :season_id, :image, :size, :explanation, season_ids: [])
+  end
+
+  def set_input_items
+  @children = Child.all
+  @genres = Genre.all
+  @seasons = Season.all
   end
 
 end

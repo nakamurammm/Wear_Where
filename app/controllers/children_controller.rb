@@ -4,8 +4,14 @@ class ChildrenController < ApplicationController
   end
   def create
     @child = Child.new(child_params)
-    @child.save!
-    redirect_to children_path
+    @child.user_id = current_user.id
+    if @child.save
+      redirect_to children_path
+    else
+      render :new
+    end
+
+
   end
 
   def edit

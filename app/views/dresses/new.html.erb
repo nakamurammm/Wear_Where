@@ -1,18 +1,23 @@
-<% if @dress.errors.any? %>
-  <%= @dress.errors.count %>件のエラーが発生しました
-  <% @dress.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
 
 <br>
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
+      <p id="message">
+      <% if @dress.errors.any? %>
+        <%= @dress.errors.count %>件のエラーが発生しました
+        <% @dress.errors.full_messages.each do |message| %><br>
+          <%= message %>
+        <% end %>
+      <% end %></p>
+
       <h5>洋服投稿画面</h5>
       <%= form_with model: @dress, local:true do |f| %>
         <%= f.label :image, '画像', class:"col-form-label"%>
+        <% if @dress.errors.include?(:name) %>
+        <span style="color: red;"><%= @dress.errors.full_messages_for(:name).first %>
+        <% end %><br>
         <%= f.attachment_field :image %><br>
 
         <%= f.label :child, 'だれの洋服ですか？', class:"col-form-label" %><br>
