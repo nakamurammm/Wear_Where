@@ -7,7 +7,7 @@ Rails.application.routes.draw do
  resources :genres, only: [:new, :create, :edit, :destroy]
  patch '/genres/:id', to: 'genres#update'
 
- resources :dresses, only: [:new, :create, :index, :show, :edit, :destroy]
+ resources :dresses, param: :id, only: [:new, :create, :index, :show, :edit, :destroy]
  patch '/dresses/:id', to: 'dresses#update'
 
  resources :post_images, only: [:new, :create, :index, :show, :destroy] do

@@ -17,6 +17,14 @@ class Dress < ApplicationRecord
     seasons.map{|season|season.name}.join("・")
   end
 
-validates :get_season_name, acceptance: { message: 'を選択してください。' }
+
+  def self.genre(genre_id)
+    if search
+      Dress.where(genre_id: genre_id)
+    else
+      Dress.all
+    end
+  end
+
 
 end

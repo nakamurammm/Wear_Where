@@ -10,8 +10,10 @@ class ChildrenController < ApplicationController
     else
       render :new
     end
+  end
 
-
+  def show
+    @children = Child.all
   end
 
   def edit

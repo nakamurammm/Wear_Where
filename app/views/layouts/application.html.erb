@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Wear Where</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,14 +11,15 @@
   </head>
 
   <body>
+    
     <%= render 'layouts/header' %>
-
+    
     <main>
       <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
 
     <footer><br><p>© milk 2021 I hope your life will be enriched, All Rights Reserved.</p></footer>
-
+    
   </body>
 </html>

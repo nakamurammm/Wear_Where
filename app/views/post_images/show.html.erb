@@ -11,19 +11,11 @@
       <%= link_to "投稿を削除", post_image_path(@post_image), method: :delete, data: { confirm: '削除しますか？' } %>
     <% end %>
 
-    <% if @post_image.favorited_by?(current_user) %>
-      <p>
-        <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
-          ★<%= @post_image.favorites.count %> いいね
-        <% end %>
-      </p>
-    <% else %>
-      <p>
-        <%= link_to post_image_favorites_path(@post_image), method: :post do %>
-          ☆<%= @post_image.favorites.count %> いいね
-        <% end %>
-      </p>
-    <% end %>
+    <% if current_user != @post_image.user %>
+      <span id="favorites_buttons_<%= @post_image.id %>">
+        <%= render partial: 'favorites/favorite', locals: { post_image: @post_image} %>
+      </span>
+      <% end %>
   </div>
   <div class="comment col-lg-3">
     <!--<p>コメント件数：<%= @post_image.post_comments.count %></p>-->
@@ -38,8 +30,8 @@
     <% if @post_image.user != current_user %>
       <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
         <%= f.label :comment, 'コメント', class:"col-form-label"%>
-        <%= f.text_area :comment, placeholder: "コメントをここに", class: "form-control" %>
-        <%= f.submit '送信する', class:"btn btn-success mx-auto" %>
+        <%= f.text_area :comment, placeholder: "コメントをここに", class: "form-control", size: "4x3" %>
+        <%= f.submit '送信する', class:"btn btn-primary mx-auto" %>
       <% end %>
     <% end %>
   </div>

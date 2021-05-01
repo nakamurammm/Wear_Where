@@ -22,7 +22,6 @@ class DressesController < ApplicationController
   end
 
   def index
-
     @dresses = Dress.all
     @dresses1 = Dress.where(genre_id: 1)
     @dresses2 = Dress.where(genre_id: 2)
