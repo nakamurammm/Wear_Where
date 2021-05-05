@@ -11,6 +11,10 @@ class DressesController < ApplicationController
     @dress = Dress.new(dress_params)
 
     if @dress.save
+      tags = Vision.get_image_data(@dress.image)
+      tags.each do |tag|
+        @dress.tags.create(name: tag)
+      end
       params[:dress][:season].each do |season_id|
         DressesSeason.create(season_id: season_id,dress_id:@dress.id)
       end

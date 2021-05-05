@@ -2,6 +2,7 @@ class Dress < ApplicationRecord
   belongs_to :child
   belongs_to :user, optional: true
   belongs_to :genre
+  has_many :tags
   has_many :dresses_seasons
   has_many :seasons, through: :dresses_seasons
   # has_many :dresses_children
