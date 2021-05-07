@@ -1,5 +1,5 @@
-
-  <div class="col-lg-2"></div>
+  <div class="row">
+  <div class="col-lg-3"></div>
   <br>
   <br>
   <div class="col-lg-4">
@@ -13,6 +13,8 @@
     <% if @post_image.user == current_user %>
       <%= link_to "投稿を削除", post_image_path(@post_image), method: :delete, data: { confirm: '削除しますか？' } %>
     <% end %>
+    |
+    <%= link_to "一覧に戻る", post_images_path %>
 
     <% if current_user != @post_image.user %>
       <span id="favorites_buttons_<%= @post_image.id %>">
@@ -39,3 +41,4 @@
     <% end %>
   </div>
   <div class="col-lg-2"></div>
+  </div>
