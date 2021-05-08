@@ -1,8 +1,13 @@
 <header>
-  <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo2.jpg', :size =>'250x40' %></a>
+
   <% if user_signed_in? %>
+  <%= link_to user_path(current_user) do %>
+    <%= image_tag 'logo2.jpg', :size =>'250x40' %></a>
+  <% end %>
+
     こんにちは<%= current_user.name %>さん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です!
   <% else %>
+  <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo2.jpg', :size =>'250x40' %></a>
     こんにちは　ゲストユーザーさん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
   <% end %>
 

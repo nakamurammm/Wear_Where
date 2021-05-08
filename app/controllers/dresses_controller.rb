@@ -10,7 +10,7 @@ class DressesController < ApplicationController
   def create
     @dress = Dress.new(dress_params)
 
-    if @dress.save
+    if @dress.save!
       tags = Vision.get_image_data(@dress.image)
       tags.each do |tag|
         @dress.tags.create(name: tag)
@@ -18,7 +18,7 @@ class DressesController < ApplicationController
       params[:dress][:season].each do |season_id|
         DressesSeason.create(season_id: season_id,dress_id:@dress.id)
       end
-      redirect_to dresses_path
+      redirect_to dress_path(@dress.id)
     else
       render :new
       @seasons = Season.all
