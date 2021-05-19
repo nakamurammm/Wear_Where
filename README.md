@@ -33,7 +33,7 @@
 https://docs.google.com/spreadsheets/d/19jG34KRMnQ7qi2cOL6ZKeBCx37AdrpxD_9hB0uNzQpM/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux2(Karoo)
 - 言語：HTML,SCSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
