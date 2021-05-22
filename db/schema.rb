@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_104427) do
+ActiveRecord::Schema.define(version: 2021_05_22_043715) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_104427) do
     t.integer "season_id"
     t.text "image_id"
     t.integer "child_id"
+    t.integer "user_id"
   end
 
   create_table "dresses_children", force: :cascade do |t|

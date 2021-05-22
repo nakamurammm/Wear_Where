@@ -8,9 +8,11 @@ class DressesController < ApplicationController
     @children = Child.all
   end
   def create
+
     @dress = Dress.new(dress_params)
+    @dress.user_id = current_user.id
     params[:dress][:season].each do |season_id|
-      DressesSeason.create(season_id: season_id,dress_id:@dress.id)
+      DressesSeason.create(season_id: season_id,dress_id: @dress.id)
     end
     if @dress.save
       tags = Vision.get_image_data(@dress.image)
@@ -25,7 +27,9 @@ class DressesController < ApplicationController
   end
 
   def index
-    @dresses = Dress.all
+    # @user = User.find(params[:id])
+    # @dresses = @user.dress.all
+    @dresses = current_user.dresses.includes(:user)
     @genres = Genre.all
   end
 
@@ -60,7 +64,7 @@ class DressesController < ApplicationController
 
   private
   def dress_params
-    params.require(:dress).permit(:user_id, :child_id, :genre_id, :season_id, :image, :size, :explanation, season_ids: [])
+    params.require(:dress).permit(:user_id, :child_id, :genre_id, :image, :size, :explanation, season_ids: [])
   end
 
   def set_input_items

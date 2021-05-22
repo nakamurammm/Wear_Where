@@ -28,6 +28,7 @@ class ChildrenController < ApplicationController
   def index
     @children = Child.all
     @user = current_user
+     @children = Child.where(user_id: current_user.id).includes(:user).order("created_at DESC")
   end
 
   def destroy

@@ -8,7 +8,7 @@
     こんにちは<%= current_user.name %>さん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です!
   <% else %>
   <a class="navbar-brand p-3" href="/" ><%= image_tag 'logo2.jpg', :size =>'250x40' %></a>
-    こんにちは　ゲストユーザーさん。今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
+    こんにちは! 今日は <%= Date.current.strftime('%Y年%m月%d日') %>です！
   <% end %>
 
 <div class="hamburger">
@@ -35,6 +35,7 @@
       <% else %>
         <li class="nav-list-item"><%= link_to "新規登録", new_user_registration_path, class: "Editlink2" %></li>
         <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path, class: "Editlink1" %></li>
+        <li class="nav-list-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
       <% end %>
     </ul>
 </nav>
